@@ -6,7 +6,7 @@
     <h1>My blog</h1>
     {% for post in posts %}
     <h2>
-        <a href="{% url 'blog:post_detail' post.id %}">
+        <a href="{{ post.get_absolute_url }}">
             {{ post.title }}
         </a>
     </h2>
@@ -15,4 +15,10 @@
     </p>
     {{ post.body|truncatewords:30|linebreaks }}
     {% endfor %}
+    {% include 'pagination.html' with page=posts %}
+<!-- Ключевое слово
+with используется для того, чтобы передавать дополнительные контекстные
+переменные в шаблон. Мы используем выражение
+with page=posts, чтобы передавать переменную, ожидаемую шаблоном постраничной разбивки. Описанному методу можно следовать для применения
+шаблона постраничной разбивки для любого типа объекта. -->
 {% endblock %}
