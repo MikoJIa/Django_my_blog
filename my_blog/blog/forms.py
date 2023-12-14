@@ -1,5 +1,7 @@
 from django import forms
 
+from .models import Comment
+
 
 class EmailPostForm(forms.Form):
     name = forms.CharField(max_length=25)
@@ -13,3 +15,9 @@ class EmailPostForm(forms.Form):
     # посредством атрибута widget. В поле comments используется виджет Textarea,
     # чтобы отображать его как HTML-элемент <textarea> вместо используемого
     # по умолчанию элемента <input>
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['name', 'email', 'body']
