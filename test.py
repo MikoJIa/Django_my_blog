@@ -1,21 +1,13 @@
-
-def is_pangram(s):
-    string = s
-    count = 0
-    p = 'ABCDFGHJKLMNPQRSTVWXZ'
-    new_lst = []
-    for i in ''.join(string).lower():
-        if i in p.lower() and i != ' ' and i != int():
-                count += 1
-                if i not in new_lst:
-                    new_lst.append(i)
-        else:
-            count = count
-    print(new_lst)
-    if len(new_lst) == len(p):
-        return True
-    else:
-        return False
+def func(n: str):
+    alf = 'АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ '
+    string = n + ' 'f'запретил букву'
+    for i in range(0, len(string.replace(' ', '')) - 1):
+        if alf[i].lower() in string:
+            string = string.replace(alf[i].lower(), '')
+        print(string + ' 'f'{alf[i].lower()}')
 
 
-print(is_pangram("1bcdefghijklmnopqrstuvwxyz"))
+n = input()
+func(n)
+
+
