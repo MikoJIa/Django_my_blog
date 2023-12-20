@@ -1,7 +1,9 @@
 from django import template
 from django.db.models import Count
-
 from ..models import Post
+from django.utils.safestring import mark_safe
+import markdown
+
 
 register = template.Library()
 
@@ -38,3 +40,9 @@ def get_most_commented_posts(count=5):
 
 #  В приведенном выше шаблонном теге с помощью функции annotate() формируется набор
 #  запросов QuerySet, чтобы агрегировать общее число комментариев к каждому посту.
+
+
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown.markdown(text))
+

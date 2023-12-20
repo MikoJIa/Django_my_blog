@@ -1,10 +1,10 @@
 def func(n: str):
-    alf = 'АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ '
+    alf = 'АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
     string = n + ' 'f'запретил букву'
-    for i in range(0, len(string.replace(' ', '')) - 1):
-        if alf[i].lower() in string:
-            string = string.replace(alf[i].lower(), '')
-        print(string + ' 'f'{alf[i].lower()}')
+    for i in alf.lower():
+        if i.lower() in string:
+            print(string + ' 'f'{i.lower()}')
+            string = string.replace(i.lower(), '').strip().replace('  ', ' ')
 
 
 n = input()
